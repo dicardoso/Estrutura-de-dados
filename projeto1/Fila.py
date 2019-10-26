@@ -11,7 +11,7 @@ class Fila:
         p = self._head
         while p.get_prox() != None:
             p=p.get_prox()
-        p.set_prox(no)
+        p.set_prox(No(no))
 
     def remove(self):
         p=self._head
