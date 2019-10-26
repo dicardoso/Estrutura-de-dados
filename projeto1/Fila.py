@@ -1,3 +1,5 @@
+from No import No
+
 class Fila:
     def __init__(self,head=None):
         self._head = head
