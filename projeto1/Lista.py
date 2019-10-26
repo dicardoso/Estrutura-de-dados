@@ -14,14 +14,14 @@ class Lista:
 
     def inserir_inicio(self, no):
         p = No()
-        p.set_filme(no)
+        p.set_dado(no)
         p.set_prox(self._head)
         self._head = p
 
     def inserir_final(self, no):
         p = No()
         if (self._head == None):
-            p.set_filme(no)
+            p.set_dado(no)
             p.set_prox(None)
             self._head = p
 
