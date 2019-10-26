@@ -8,7 +8,7 @@ class Lista:
         size = 0
         aux = self._head
         while (aux != None):
-            size = size + 1
+            size += 1
             aux = aux.get_prox()
         return size
 
