@@ -17,7 +17,7 @@ class No:
         self._prox = outro
 
     def __str__(self):
-        texto ='Título: {}\nGênero: {}\nDuração: {} min\nAno:{}\nAtores:{}'.format(
+        texto ='Título: {}\nGênero: {}\nDuração: {} min\nAno: {}\nAtores: {}'.format(
             self._filme._titulo,
             self._filme._genero, 
             self._filme._tempo, 

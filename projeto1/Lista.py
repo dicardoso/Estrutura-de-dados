@@ -10,8 +10,6 @@ class Lista:
         while (aux != None):
             size = size + 1
             aux = aux.get_prox()
-        
-        print(size+1)
         return size
 
     def inserir_inicio(self, no):
@@ -57,6 +55,44 @@ class Lista:
             novoNo = No(dado)
             p.set_prox(novoNo)
             novoNo.set_prox(q)
+
+    def remover_inicio(self):
+        self._head = self._head.get_prox()
+
+    def remover_index(self, index):
+        p = No()
+        q = No()
+        p = self._head
+        q = self._head
+        i = 0
+
+        if (index == 0):
+            self.remover_inicio()
+        
+        elif (index >= self.tamanho()):
+            self.remover_final()
+        
+        else:
+            while (i < index or q == None):
+                p = q
+                q = p.get_prox()
+                i += 1
+            
+            p.set_prox(q.get_prox())
+
+    def remover_final(self):
+        if (self.tamanho() == 0):
+            print('Lista Vazia')
+
+        else:
+            p = No()
+            q = No()
+            p = self._head
+            q = self._head
+            while(q.get_prox() != None):
+                p = q
+                q = p.get_prox()
+            p.set_prox(None)            
 
     def caminhar(self):
         aux = self._head
