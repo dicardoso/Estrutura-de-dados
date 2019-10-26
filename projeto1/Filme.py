@@ -35,3 +35,12 @@ class Filme:
 
     def get_ano(self):
         return self._ano
+
+    def __str__(self):
+        texto ='Título: {}\nGênero: {}\nDuração: {} min\nAno: {}\nAtores: {}'.format(
+            self._titulo,
+            self._genero, 
+            self._tempo, 
+            self._ano,
+            self._atores)
+        return texto
