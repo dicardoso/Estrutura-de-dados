@@ -47,7 +47,7 @@ class Lista:
             self.inserir_final(dado)
 
         else:
-            while (i <= index or q == None):
+            while (i <= index or q != None):
                 p = q
                 q = p.get_prox()
                 i += 1

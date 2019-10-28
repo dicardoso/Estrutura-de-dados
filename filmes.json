@@ -1,0 +1,64 @@
+[
+    {
+        "titulo": "Star Wars IX - Ascenção Skywalker",
+        "genero": "Aventura",
+        "tempo": 155,
+        "atores": [
+            "Daisy Ridley",
+            "Adam Driver",
+            "John Boyega",
+            "Oscar Isaac",
+            "Mark Hamill",
+            "Anthony Daniels",
+            "Billy Dee Williams",
+            "Carrie Fisher",
+            "Ian McDiarmid"
+        ],
+        "ano": 2019
+    },
+    {
+        "titulo": "Vingadores",
+        "genero": "Aventura, Ação",
+        "tempo": 144,
+        "atores": [
+            "Robert Downey, Jr.",
+            "Chris Evans",
+            "Mark Ruffalo",
+            "Chris Hemsworth",
+            "Scarlett Johansson",
+            "Jeremy Renner",
+            "Tom Hiddleston"
+        ],
+        "ano": 2012
+    },
+    {
+        "titulo": "Joker",
+        "genero": "Suspense",
+        "tempo": 123,
+        "atores": [
+            "Joaquin Phoenix",
+            "Robert De Niro",
+            "Zazie Beetz",
+            "Bill Camp",
+            "Frances Conroy",
+            "Brett Cullen"
+        ],
+        "ano": 2012
+    },
+    {
+        "titulo": "Os Incríveis",
+        "genero": "Ação, Comédia",
+        "tempo": 115,
+        "atores": [
+            "Craig T. Nelson",
+            "Holly Hunter",
+            "Sarah Vowell",
+            "Spencer Fox",
+            "Jason Lee",
+            "Samuel L. Jackson",
+            "Elizabeth Peña",
+            "Brad Bird"
+        ],
+        "ano": 2012
+    }
+]
