@@ -22,7 +22,7 @@ def menu():
         print ('------- Menu -------\n')
         print ('1 - Inserção\n2 - Remoção\n3 - Exibir lista\n0 - Sair\n')
         op = int(input('> '))
-
+        
         if op == 1:
             menuInserir()
 
@@ -42,7 +42,8 @@ def menuInserir():
     os.system('cls') or None
     print ('- Filmes favoritos -')
     print ('------ Inserir -----\n')
-    
+    print ('1 - Início\n2 - Índice\n3 - Final\n0 - Voltar\n')
+    op = (input('> '))
 
 def menuRemover():
     os.system('cls') or None
@@ -50,17 +51,7 @@ def menuRemover():
 
 lista = Lista()
 listarJSON(lista)
-menu()
 
-
-
-#lista.inserir_final(f1)
-#lista.inserir_inicio(f2)
-#lista.inserir_final(f3)
-#lista.inserir_index(f4,2)
-
-#lista.caminhar()
-#print('### Nova Lista ###\n')
-#lista.remover_index(3)
-#lista.remover_final()
-#lista.caminhar()
+lista.sort()
+lista.caminhar()
+#menu()

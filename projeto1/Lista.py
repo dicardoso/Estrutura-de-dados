@@ -1,4 +1,5 @@
 from No import No
+from Filme import Filme
 
 class Lista:
     def __init__(self, head=None):
@@ -34,8 +35,6 @@ class Lista:
             p.set_prox(q)
     
     def inserir_index(self, dado, index):
-        p = No()
-        q = No()
         p = self._head
         q = self._head
         i = 0
@@ -60,8 +59,6 @@ class Lista:
         self._head = self._head.get_prox()
 
     def remover_index(self, index):
-        p = No()
-        q = No()
         p = self._head
         q = self._head
         i = 0
@@ -85,14 +82,29 @@ class Lista:
             print('Lista Vazia')
 
         else:
-            p = No()
-            q = No()
             p = self._head
             q = self._head
             while(q.get_prox() != None):
                 p = q
                 q = p.get_prox()
-            p.set_prox(None)            
+            p.set_prox(None) 
+
+    def sort(self):
+        sorted = False
+        count = 0
+
+        while not sorted:
+            sorted = True
+            prev = self._head
+            curr = self._head.get_prox()
+
+            while curr is not None:
+                if prev.get_dado().get_ano() > curr.get_dado().get_ano():
+                    sorted = False
+                    prev._dado, curr._dado = curr._dado, prev._dado
+                    count += 1
+                prev = curr
+                curr = curr.get_prox()
 
     def caminhar(self):
         aux = self._head
