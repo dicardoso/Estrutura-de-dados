@@ -168,11 +168,11 @@ class Application:
 
     def remove(self):
         if self.escolha.get() == 'No Início':
-            a.remover_inicio(Filme(titulo,genero,tempo,atores,ano))
+            a.remover_inicio()
         elif self.escolha.get() == 'No Final':
-            a.remover_final(Filme(titulo,genero,tempo,atores,ano))
+            a.remover_final())
         else:
-            a.remover_index(Filme(titulo,genero,tempo,atores,ano),int(self.indice.get()))
+            a.remover_index(),int(self.indice.get()))
             
     def sort(self):
         a.sort()
