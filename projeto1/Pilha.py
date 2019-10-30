@@ -1,7 +1,7 @@
 from No import No
 
 class Pilha:
-    def __init__(self,topo):
+    def __init__(self,topo=None):
         self._topo = topo
 
     def get_topo(self):

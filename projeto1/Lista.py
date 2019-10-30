@@ -111,3 +111,4 @@ class Lista:
         while (aux != None):
             print(aux,'\n')
             aux = aux.get_prox()
+        input('Pressione ENTER')

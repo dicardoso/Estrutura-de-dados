@@ -1,4 +1,5 @@
 from No import No
+from Filme import Filme
 
 class Fila:
     def __init__(self,head=None):
@@ -8,10 +9,14 @@ class Fila:
         return self._head
     
     def add(self,no):
+        q = No(no)
         p = self._head
-        while p.get_prox() != None:
-            p=p.get_prox()
-        p.set_prox(No(no))
+        if p == None:
+            self._head=q
+        else:
+            while p.get_prox() != None:
+                p=p.get_prox()
+            p.set_prox(No(q))
 
     def remove(self):
         p=self._head

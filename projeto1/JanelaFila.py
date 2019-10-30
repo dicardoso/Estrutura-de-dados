@@ -132,22 +132,16 @@ class Application:
         tempo = self.tempo.get()
         atores = str(self.atores.get()).split(';')
         ano = self.ano.get()
-        a.add(Filme(titulo,gebero,tempo,atores,ano))
+        a.add(Filme(titulo,genero,tempo,atores,ano))
         
     
     def liste(self):
-        a.size()
+        print(a.size())
 
     def remove(self):
-    	z = a.remove()
-    	print(z)
-        
-            
-    
-            
-            
-         
-        
+    	print(a.remove())
+
+
 a = Fila()
 root = Tk()
 Application(root)
