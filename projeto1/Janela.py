@@ -110,13 +110,13 @@ class Application:
         self.ano["font"] = self.fontePadrao
         self.ano.pack(side=TOP)
 
-        self.nomeListaLabel = Label(self.setimoContainer, text="Nome da Lista", font=self.fontePadrao)
-        self.nomeListaLabel.pack(side=TOP)
+
+        #self.nomeListaLabel = Label(self.setimoContainer, text="Nome da Lista", font=self.fontePadrao)
+        #self.nomeListaLabel.pack(side=TOP)
   
-        self.nomeLista = Entry(self.setimoContainer)
-        self.nomeLista["width"] = 30
-        self.nomeLista["font"] = self.fontePadrao
-        self.nomeLista.pack(side=BOTTOM)
+        #self.nomeLista = Entry(self.setimoContainer)
+        #self.nomeLista["width"] = 30
+        #self.nomeLista["font"] = self.fontePadrao
 
         self.adicionarLa = Button(self.oitavoContainer)
         self.adicionarLa["text"] = "Adicionar"
@@ -125,13 +125,27 @@ class Application:
         self.adicionarLa["command"] = self.adicionar
         self.adicionarLa.pack()
 
+        self.deletar = Button(self.oitavoContainer)
+        self.deletar["text"] = 'Deletar'
+        self.deletar["font"] = ("Calibri", "8")
+        self.deletar["width"] = 12
+        self.deletar["command"] = self.remove
+        self.deletar.pack()
+
+        self.sortear = Button(self.oitavoContainer)
+        self.sortear["text"] = 'Sortear por ano'
+        self.sortear["font"] = ("Calibri", "8")
+        self.sortear["width"] = 12
+        self.sortear["command"] = self.sort
+        self.sortear.pack()
+
         self.listar = Button(self.oitavoContainer)
-        self.listar["text"] = 'Listar'
+        self.listar["text"] = 'Listar\nno terminal'
         self.listar["font"] = ("Calibri", "8")
         self.listar["width"] = 12
         self.listar["command"] = self.liste
         self.listar.pack()
-  
+
         self.mensagem = Label(self.oitavoContainer, text="", font=self.fontePadrao)
         self.mensagem.pack()
   
@@ -151,7 +165,17 @@ class Application:
     
     def liste(self):
         a.caminhar()
+
+    def remove(self):
+        if self.escolha.get() == 'No Início':
+            a.remover_inicio(Filme(titulo,genero,tempo,atores,ano))
+        elif self.escolha.get() == 'No Final':
+            a.remover_final(Filme(titulo,genero,tempo,atores,ano))
+        else:
+            a.remover_index(Filme(titulo,genero,tempo,atores,ano),int(self.indice.get()))
             
+    def sort(self):
+        a.sort()
             
             
             
