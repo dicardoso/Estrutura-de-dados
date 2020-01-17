@@ -38,8 +38,38 @@ def insertion(lista):
 
     return lista
 
+def heapify(lista, n, i):
+    maior = i
+    l = 2 * i + 1
+    r = 2 * i + 2
+
+    if l < n and lista[i] < lista[l]:
+        maior = l
+
+    if r < n and lista[maior] < lista[r]:
+        maior = r
+
+    if maior != i:
+        lista[i], lista[maior] = lista[maior], lista[i]
+        heapify(lista, n, maior)
+
+
 def heap(lista):
-    pass
+    tInicial = time.time()
+    n = len(lista)
+
+    for i in range(n, -1, -1):
+        heapify(lista, n, i)
+
+    for i in range(n - 1, 0, -1):
+        lista[i], lista[0] = lista[0], lista[i]
+        heapify(lista, i, 0)
+
+    tFinal = time.time()
+    tot = tFinal - tInicial
+    print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
+
+    return lista
 
 def comb(lista):
     pass
@@ -47,8 +77,26 @@ def comb(lista):
 def shell(lista):
     pass
 
-def quick(lista):
-    pass
+def partition(array, menor, maior):
+    i = (menor - 1)
+    pivot = array[maior]
+
+    for j in range(menor, maior):
+        if array[j] <= pivot:
+            i = i + 1
+            array[i], array[j] = array[j], array[i]
+
+    array[i + 1], array[maior] = array[maior], array[i + 1]
+    return (i + 1)
+
+
+def quick(lista, menor, maior):
+    if menor < maior:
+        pi = partition(lista, menor, maior)
+        quick(lista, menor, pi - 1)
+        quick(lista, pi + 1, maior)
+
+    return lista
 
 def merge(lista):
     pass     
@@ -60,6 +108,7 @@ def gerarLista():
 
 def menu():
     while True:
+        os.system('cls') or None
         print('### Algoritmos de ordenação ###')
         print('1 - BubbleSort\n2 - InsertionSort\n3 - HeapSort\n4 - CombSort')
         print('5 - ShellSort\n6 - QuickSort\n7 - MergeSort\n0 - Sair')
@@ -88,7 +137,13 @@ def menu():
 
         if op.count('6'):
             print('Executndo QuickSort...')
-            quick(lista.copy())
+            tInicial = time.time()
+            
+            quick(lista.copy(), 0, len(lista)-1)
+            
+            tFinal = time.time()
+            tot = tFinal - tInicial
+            print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
 
         if op.count('7'):
             print('Executndo MergeSort...')
