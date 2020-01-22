@@ -20,7 +20,7 @@ def bubble(lista):
     print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
     
     return lista 
-
+####
 def insertion(lista): 
     tInicial = time.time()
 
@@ -37,7 +37,7 @@ def insertion(lista):
     print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
 
     return lista
-
+####
 def heapify(lista, n, i):
     maior = i
     l = 2 * i + 1
@@ -52,7 +52,6 @@ def heapify(lista, n, i):
     if maior != i:
         lista[i], lista[maior] = lista[maior], lista[i]
         heapify(lista, n, maior)
-
 
 def heap(lista):
     tInicial = time.time()
@@ -71,11 +70,56 @@ def heap(lista):
 
     return lista
 
-def comb(lista):
-    pass
+def getNextGap(gap): 
+ 
+    gap = (gap * 10)/13
+    if gap < 1: 
+        return 1
+    return gap 
+ 
+def comb(lista): 
+    tInicial = time.time()
+    n = len(lista) 
+    gap = n 
+  
+    troca = True
 
+    while gap != 1 or troca == 1: 
+   
+        gap = int(getNextGap(gap))
+  
+        troca = False
+        
+        for i in range(0, n-gap): 
+            if lista[i] > lista[i + gap]: 
+                lista[i], lista[i + gap]=lista[i + gap], lista[i] 
+                troca = True
+
+    tFinal = time.time()
+    tot = tFinal - tInicial
+    print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
+    return lista
+####
 def shell(lista):
-    pass
+    tInicial = time.time()
+    h = 1
+    n = len(lista)
+    while h > 0:
+            for i in range(h, n):
+                c = lista[i]
+                j = i
+                while j >= h and c < lista[j - h]:
+                    lista[j] = lista[j - h]
+                    j = j - h
+                    lista[j] = c
+            h = int(h / 2.2)
+
+    tFinal = time.time()
+    tot = tFinal - tInicial
+    print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
+    
+    return lista
+####
 
 def partition(array, menor, maior):
     i = (menor - 1)
@@ -89,7 +133,6 @@ def partition(array, menor, maior):
     array[i + 1], array[maior] = array[maior], array[i + 1]
     return (i + 1)
 
-
 def quick(lista, menor, maior):
     if menor < maior:
         pi = partition(lista, menor, maior)
@@ -97,12 +140,47 @@ def quick(lista, menor, maior):
         quick(lista, pi + 1, maior)
 
     return lista
-
+####
 def merge(lista):
-    pass     
+    if len(lista) > 1:
 
+        meio = len(lista)//2
+        #também é valido: meio = int(len(lista)/2)
+
+        listaDaEsquerda = lista[:meio]
+        listaDaDireita = lista[meio:]
+
+        merge(listaDaEsquerda)
+        merge(listaDaDireita)
+
+        i = 0
+        j = 0
+        k = 0
+
+        while i < len(listaDaEsquerda) and j < len(listaDaDireita):
+
+            if listaDaEsquerda[i] < listaDaDireita[j]:
+                lista[k]=listaDaEsquerda[i]
+                i += 1
+            else:
+                lista[k]=listaDaDireita[j]
+                j += 1
+            k += 1
+
+        while i < len(listaDaEsquerda):
+
+            lista[k]=listaDaEsquerda[i]
+            i += 1
+            k += 1
+
+        while j < len(listaDaDireita):
+            lista[k]=listaDaDireita[j]
+            j += 1
+            k += 1
+    return lista
+####
 def gerarLista():
-    for i in range(2000):
+    for i in range(10000):
         num = random.randint(1,5000)
         lista.append(num)
 
@@ -147,7 +225,13 @@ def menu():
 
         if op.count('7'):
             print('Executndo MergeSort...')
+            tInicial = time.time()
+
             merge(lista.copy())
+
+            tFinal = time.time()
+            tot = tFinal - tInicial
+            print('Tempo: {}ms\n'.format(round (tot*1000, 3)))
         
         if op == '0':
             break
